@@ -1,7 +1,7 @@
 let init = () => {
   timer = $('#pokeClock-Timer');
   console.log(timer);
-  incrementTime(5998);
+  incrementTime(0);
 }
 
 let incrementTime = (time) => {

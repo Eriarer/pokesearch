@@ -1,5 +1,7 @@
 #screenChange {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100svw;
   height: 100svh;
   overflow: hidden;

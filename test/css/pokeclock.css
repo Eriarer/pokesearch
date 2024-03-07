@@ -1,0 +1,24 @@
+/* incluir la fuente  */
+@font-face {
+  font-family: 'Aquarius';
+  src: url('../font/Aquarius-RegularMono.ttf') format('truetype');
+}
+
+#pokeClock {
+  position: relative;
+
+  &>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &>#pokeClock-Timer {
+    font-size: 40px;
+    position: absolute;
+    top: 60px;
+    left: 30px;
+    font-family: 'Aquarius';
+    color: #385131;
+  }
+}

@@ -49,7 +49,7 @@ let animateCurtain = () => {
     pokeScreenGroup.css('animation', 'none');
     curtainBottom.css('animation', 'none');
   }, 1000);
-  setTimeout(animationEnd, 1);
+  setTimeout(animationEnd, 5000);
 }
 
 let animationEnd = () => {

@@ -2,6 +2,7 @@ const curtainWidth = 3400;
 const curtainHeight = 1912;
 const centerWidth = 1064;
 const centerHeight = 1063;
+let redimensionando = false;
 
 let curtain = () => {
 
@@ -17,30 +18,22 @@ let curtain = () => {
   $(window).resize(curtainResize);
 }
 
-//curtain resize inner Components
 let curtainResize = () => {
+  if (redimensionando) return;
+  redimensionando = true;
   let windowWidth = $(window).width();
   let windowHeight = $(window).height();
   let scale = windowHeight > windowWidth ? windowHeight / curtainHeight : windowWidth / curtainWidth;
-  console.log(scale);
-  // calcular el nuevo tamaño de las cortinas
   let newWidth = curtainWidth * scale;
   let newHeight = curtainHeight * scale;
   let newCenterWidth = centerWidth * scale;
   let newCenterHeight = centerHeight * scale;
-  // ajustar el tamaño de las cortinas
-  curtainTop.width(newWidth);
-  curtainTop.height(newHeight);
 
-  curtainBottom.width(newWidth);
-  curtainBottom.height(newHeight);
-
-  pokeScreenGroup.width(newWidth);
-  pokeScreenGroup.height(newHeight);
-
-  curtainCenter.width(newCenterWidth);
-  curtainCenter.height(newCenterHeight);
-
+  curtainTop.width(newWidth).height(newHeight);
+  curtainBottom.width(newWidth).height(newHeight);
+  pokeScreenGroup.width(newWidth).height(newHeight);
+  curtainCenter.width(newCenterWidth).height(newCenterHeight);
+  redimensionando = false;
 }
 
 let animateCurtain = () => {

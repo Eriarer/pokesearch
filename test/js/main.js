@@ -3,6 +3,7 @@ const curtainHeight = 1912;
 const centerWidth = 1064;
 const centerHeight = 1063;
 let redimensionando = false;
+let newWidth, newHeight, newCenterWidth, newCenterHeight, windowHeight, windowWidth = 0;
 
 let curtain = () => {
 
@@ -21,19 +22,29 @@ let curtain = () => {
 let curtainResize = () => {
   if (redimensionando) return;
   redimensionando = true;
-  let windowWidth = $(window).width();
-  let windowHeight = $(window).height();
-  let scale = windowHeight > windowWidth ? windowHeight / curtainHeight : windowWidth / curtainWidth;
-  let newWidth = curtainWidth * scale;
-  let newHeight = curtainHeight * scale;
-  let newCenterWidth = centerWidth * scale;
-  let newCenterHeight = centerHeight * scale;
+  windowWidth = $(window).width();
+  windowHeight = $(window).height();
+
+  // ajustar el tamaño para que la cortina con dimensiones constantes declaradas
+  // cubra toda la pantalla, sin importar la relación de aspecto de la ventana
+  newWidth = (windowWidth / windowHeight) > (curtainWidth / curtainHeight) ? windowWidth : curtainWidth * windowHeight / curtainHeight;
+  newHeight = (windowWidth / windowHeight) > (curtainWidth / curtainHeight) ? curtainHeight * windowWidth / curtainWidth : windowHeight;
+  // ajustar el tamaño del centro para que sea proporcional al tamaño de la cortina
+  newCenterWidth = centerWidth * newWidth / curtainWidth;
+  newCenterHeight = centerHeight * newHeight / curtainHeight;
 
   curtainTop.width(newWidth).height(newHeight);
   curtainBottom.width(newWidth).height(newHeight);
   pokeScreenGroup.width(newWidth).height(newHeight);
   curtainCenter.width(newCenterWidth).height(newCenterHeight);
   redimensionando = false;
+
+
+  // limpiar la consola
+  console.clear();
+  console.log(windowHeight)
+  console.log(windowWidth, windowHeight);
+  console.log(newWidth, newHeight);
 }
 
 let animateCurtain = () => {
@@ -42,8 +53,8 @@ let animateCurtain = () => {
   curtainBottom.css('display', 'block');
 
   // animar las cortinas
-  pokeScreenGroup.css('animation', 'pokeScreenTopIn 1s forwards');
-  curtainBottom.css('animation', 'pokeScreenBottomIn 1s forwards');
+  pokeScreenGroup.css('animation', 'pokeScreenTopIn 1s');
+  curtainBottom.css('animation', 'pokeScreenBottomIn 1s');
   setTimeout(() => {
     curtainCenter.css('animation', 'fullspin 4s forwards infinite linear');
     pokeScreenGroup.css('animation', 'none');
@@ -55,8 +66,8 @@ let animateCurtain = () => {
 let animationEnd = () => {
   // animar las cortinas
   curtainCenter.css('animation', 'none');
-  pokeScreenGroup.css('animation', 'pokeScreenTopOut 1s forwards');
-  curtainBottom.css('animation', 'pokeScreenBottomOut 1s forwards');
+  pokeScreenGroup.css('animation', 'pokeScreenTopOut 1s ease-in');
+  curtainBottom.css('animation', 'pokeScreenBottomOut 1s ease-in');
   setTimeout(() => {
     // ocultar las cortinas
     pokeScreenGroup.css('display', 'none');

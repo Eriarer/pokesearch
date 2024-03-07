@@ -40,7 +40,7 @@
 /* Animaciones */
 @keyframes pokeScreenTopIn {
   0% {
-    transform: translate(-100%, -100%);
+    transform: translate(-150%, -150%);
   }
 
   100% {
@@ -54,7 +54,7 @@
   }
 
   100% {
-    transform: translate(-100%, -100%);
+    transform: translate(-150%, -150%);
   }
 }
 

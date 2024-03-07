@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego</title>
+    <link rel="stylesheet" href="css/game.css">
+    <script src="js/game.js"></script>
+</head>
+<body>
+    <!-- biomas -->
+    <div id="game">
+    <div id="Bioma">
+        <div id="bioma1" class="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="" draggable="false" id="biomaImg1" width="250" height="250" class="bioma-image" use="False">
+        </div>
+        <div id="bioma2" class="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="" draggable="false" id="biomaImg2" width="250" height="250" class="bioma-image" use="False">
+        </div>
+        <div id="bioma3" class="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="" draggable="false" id="biomaImg3" width="250" height="250" class="bioma-image" use="False">
+        </div>
+    </div>
+    <!-- pokemons -->
+    <div id="Pokemons">
+        <div id="div1" class="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="" draggable="true" id="drag1" width="250" height="250" ondragstart="dragStart(event)" ondragend="dragEnd(event)" class="droptarget">
+        </div>
+        <div id="div2" class="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="" draggable="true" id="drag2" width="250" height="250" ondragstart="dragStart(event)" ondragend="dragEnd(event)" class="droptarget">
+        </div>
+        <div id="div3" class="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="" draggable="true" id="drag3" width="250" height="250" ondragstart="dragStart(event)" ondragend="dragEnd(event)" class="droptarget">
+        </div>
+    </div>
+    </div>
+</body>
+</html>

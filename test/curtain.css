@@ -1,0 +1,87 @@
+#screenChange {
+  position: relative;
+  width: 100svw;
+  height: 100svh;
+  overflow: hidden;
+
+  /* las imagenes se tienen que estirar hasta que llenen todo el canvas */
+  &>img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &>#pokeScreen-B {
+    z-index: 1;
+  }
+}
+
+#pokeScreen-Group {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3400px;
+  height: 1912px;
+  z-index: 2;
+
+  &>#pokeScreen-C {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Animaciones */
+@keyframes pokeScreenTopIn {
+  0% {
+    transform: translate(-100%, -100%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes pokeScreenTopOut {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    transform: translate(-100%, -100%);
+  }
+}
+
+@keyframes pokeScreenBottomIn {
+  0% {
+    transform: translate(0%, 0%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes pokeScreenBottomOut {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes fullspin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

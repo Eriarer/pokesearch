@@ -14,8 +14,6 @@ let curtain = () => {
 
   curtainResize();
 
-  animateCurtain();
-
   $(window).resize(curtainResize);
 }
 
@@ -38,13 +36,6 @@ let curtainResize = () => {
   pokeScreenGroup.width(newWidth).height(newHeight);
   curtainCenter.width(newCenterWidth).height(newCenterHeight);
   redimensionando = false;
-
-
-  // limpiar la consola
-  console.clear();
-  console.log(windowHeight)
-  console.log(windowWidth, windowHeight);
-  console.log(newWidth, newHeight);
 }
 
 let animateCurtain = () => {
@@ -60,12 +51,12 @@ let animateCurtain = () => {
     pokeScreenGroup.css('animation', 'none');
     curtainBottom.css('animation', 'none');
   }, 1000);
-  setTimeout(animationEnd, 5000);
 }
 
 let animationEnd = () => {
+  // solo pausar la animación, no eliminarla
+  curtainCenter.css('animation-play-state', 'paused');
   // animar las cortinas
-  curtainCenter.css('animation', 'none');
   pokeScreenGroup.css('animation', 'pokeScreenTopOut 1s ease-in');
   curtainBottom.css('animation', 'pokeScreenBottomOut 1s ease-in');
   setTimeout(() => {
@@ -75,6 +66,7 @@ let animationEnd = () => {
 
     // eliminar las animaciones
     curtainCenter.css('animation', 'none');
+    curtainCenter.css('animation-play-state', 'running');
     pokeScreenGroup.css('animation', 'none');
     curtainBottom.css('animation', 'none');
   }, 1000);

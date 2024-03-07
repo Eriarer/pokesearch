@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeFind</title>
-    <!-- favIcon -->
-    <link rel="icon" type="image/x-icon" href="image/favIcon.png" />
-    <!-- Boostrap v4.6.2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-            crossorigin="anonymous"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/curtain.css">
-    <link rel="stylesheet" href="css/pokeclock.css">
-    <!-- JS -->
-    <script src="js/main.js"></script>
-    <script src="js/pockeClock.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokeFind</title>
+  <!-- favIcon -->
+  <link rel="icon" type="image/x-icon" href="image/favIcon.png" />
+  <!-- Boostrap v4.6.2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/curtain.css">
+  <link rel="stylesheet" href="css/pokeclock.css">
+  <!-- JS -->
+  <script src="js/curtainAnimation.js"></script>
+</head>
 
-  <body>
-    <div id="screenChange">
-      <div id="pokeScreen-Group" style="display: none;">
-        <img id="pokeScreen-T" src="image/PokeBallCurtain/pokeBallScreenTop.png">
-        <img id="pokeScreen-C" src="image/PokeBallCurtain/pokeBallScreenCenter.png">
-      </div>
-      <img id="pokeScreen-B" src="image/PokeBallCurtain/pokeBallScreenBottom.png" style="display: none;">
+<body>
+  <div id="screenChange">
+    <div id="pokeScreen-Group" style="display: none;">
+      <img id="pokeScreen-T" src="image/PokeBallCurtain/pokeBallScreenTop.png">
+      <img id="pokeScreen-C" src="image/PokeBallCurtain/pokeBallScreenCenter.png">
     </div>
-    <div id="pokeClock">
-      <img src="image/PockeClock fixed.png" alt="">
-      <p id="pokeClock-Timer">00:00</p>
-    </div>
+    <img id="pokeScreen-B" src="image/PokeBallCurtain/pokeBallScreenBottom.png" style="display: none;">
+  </div>
 
-  </body>
+  <div id="webContainer">
+  </div>
+
+  <script>
+    let loaded = () => {
+      // hacer una petición de JQuery Ajax y obener el contenido de la pagina
+      // html/test1.html y cargarlo dentro del div webContainer
+      animateCurtain();
+      $.ajax({
+        url: "html/test1.html", // Cambiar la extensión al tipo de archivo que deseas cargar
+        dataType: "html",
+        success: function (response) {
+          $('#webContainer').html(response);
+          setTimeout(() => {
+            animationEnd();
+          }, 2000);
+        },
+        error: function (xhr, status, error) {
+          console.error(xhr.statusText);
+          setTimeout(() => {
+            animationEnd();
+          }, 2000);
+        }
+      });
+    }
+
+    $(document).ready(loaded);
+  </script>
+</body>
 
 </html>

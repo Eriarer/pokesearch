@@ -23,9 +23,10 @@ body {
 }
 
 
-.drop-area {
+.drop-area, .Pokearea {
     border: 2px dashed #ccc;
     width: 15rem;
+    height: 15rem;
 }
 
 .droptarget {

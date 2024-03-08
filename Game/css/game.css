@@ -7,8 +7,8 @@ body {
 }
 
 #game {
-    height: 100vh;
-    min-height: 100dvh;
+    /* Ajustar la altura para quitar la barra lateral */
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

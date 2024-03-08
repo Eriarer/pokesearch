@@ -6,6 +6,8 @@
 
 #pokeClock {
   position: relative;
+  width: 256px;
+  height: 191px;
 
   &>img {
     position: absolute;

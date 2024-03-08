@@ -17,6 +17,7 @@
     { pokemon: 'media/778.png', fondo: 'media/778.png' }
 ];
 
+
         
 window.onload = function() {
     // Llama a la función para mostrar imágenes aleatorias al cargar la página
@@ -39,42 +40,53 @@ window.onload = function() {
 
         while (true) {
             var biomaAleatorio = Math.floor(Math.random() * 3) + 1;
-            var bioma = document.getElementById('biomaImg' + biomaAleatorio);
+            var bioma = document.getElementById('bioma' + biomaAleatorio);
             if (bioma.getAttribute('use') == 'False') {
-                bioma.src = rutaImagen.fondo;
+                // Asigna el fondo al bioma cambiando el style de background-image
+                bioma.style.backgroundImage = 'url(' + rutaImagen.fondo + ')';
+                // la imagen de fondo se ajusta al tamaño del bioma
+                bioma.style.backgroundSize = 'cover';
+                // la imagen de fondo se centra en el bioma
+                bioma.style.backgroundPosition = 'center';
+                // ajusta la altura del bioma para que la imagen de fondo se muestre completa
+                bioma.style.height = '15rem';
+
                 bioma.setAttribute('use', 'True');
-                break
+                break;
             }
         }
     }
 }
 
 
-// Función para permitir el arrastre
-function allowDrop(event) {
-    event.preventDefault();
+// funcion para el arrastre de imagenes asi como soltarlas en el sitio de la drop area
+function allowDrop(ev) {
+    ev.preventDefault();
 }
 
-// Función para el evento de soltar
-function drop(event) {
-    event.preventDefault();
-    var data = event.dataTransfer.getData("text");
-    var draggedImage = document.getElementById(data);
-    var dropZone = event.target;
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
 
-    // Verifica si la imagen se soltó en una drop area
-    if (dropZone.classList.contains('drop-area')) {
-        dropZone.appendChild(draggedImage);
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    var draggables = document.querySelectorAll('.drop-area img');
+    var dropAreas = document.querySelectorAll('.drop-area');
+
+    dropAreas.forEach(function (dropArea) {
+        dropArea.addEventListener('dragover', allowDrop);
+        dropArea.addEventListener('drop', drop);
+    });
+
+    draggables.forEach(function (draggable) {
+        draggable.addEventListener('dragstart', drag);
     }
+    );
 }
+);
 
-// Funciones para el arrastre de las imágenes
-function dragStart(event) {
-    event.dataTransfer.setData("text", event.target.id);
-}
-
-function dragEnd(event) {
-    // Llama a la función para actualizar la imagen después de que se ha soltado
-    var id = event.target.id.substring(4);
-    actualizarImagen(id);
-}

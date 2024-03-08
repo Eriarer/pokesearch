@@ -32,30 +32,8 @@
     </div>
 
     <div id="webContainer" class="container">
-      <button id="transition" type=" button" class="btn btn-primary">PokeClock</button>
+      <button onclick="changeScreen('html/test2.html')" type=" button" class="btn btn-primary">PokeClock</button>
     </div>
-
-    <script>
-      let loaded = () => {
-        $('#transition').click(() => {
-          console.log('click');
-          lilTransition('html/test2.html');
-        });
-        $('#pokeScreen-C').css('animation', 'fullspin 4s forwards infinite linear');
-        setTimeout(() => {
-          animationEnd();
-        }, Math.floor(Math.random() * 0) + 4000);
-      }
-
-      function lilTransition(path) {
-        animateCurtain();
-        setTimeout(() => {
-          window.location.href = path;
-        }, 5000);
-      }
-
-      $(document).ready(loaded);
-    </script>
   </body>
 
 </html>

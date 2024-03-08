@@ -5,6 +5,9 @@ const centerHeight = 1063;
 let redimensionando = false;
 let newWidth, newHeight, newCenterWidth, newCenterHeight, windowHeight, windowWidth = 0;
 
+const curtainTime = 0.5;
+const spinTime = 0.75;
+
 let curtain = () => {
 
   curtainTop = $('#pokeScreen-T');
@@ -13,6 +16,8 @@ let curtain = () => {
   pokeScreenGroup = $('#pokeScreen-Group')
 
   curtainResize();
+
+  pageLoad();
 
   $(window).resize(curtainResize);
 }
@@ -38,28 +43,28 @@ let curtainResize = () => {
   redimensionando = false;
 }
 
-let animateCurtain = (time = 4) => {
+let animateCurtain = (curtainTime = 1, spinTime = 4) => {
   $('#screenChange').css('display', 'block');
   // mostrar las cortinas
   pokeScreenGroup.css('display', 'block');
   curtainBottom.css('display', 'block');
 
   // animar las cortinas
-  pokeScreenGroup.css('animation', 'pokeScreenTopIn 1s');
-  curtainBottom.css('animation', 'pokeScreenBottomIn 1s');
+  pokeScreenGroup.css('animation', `pokeScreenTopIn ${curtainTime}s`);
+  curtainBottom.css('animation', `pokeScreenBottomIn ${curtainTime}s`);
   setTimeout(() => {
-    curtainCenter.css('animation', `fullspin ${time}s forwards infinite linear`);
+    curtainCenter.css('animation', `fullspin ${spinTime}s forwards infinite linear`);
     pokeScreenGroup.css('animation', 'none');
     curtainBottom.css('animation', 'none');
-  }, 1000);
+  }, curtainTime * 1000);
 }
 
-let animationEnd = () => {
+let animationEnd = (curtainTime = 1, spinTime = 4) => {
   // solo pausar la animación, no eliminarla
   curtainCenter.css('animation-play-state', 'paused');
   // animar las cortinas
-  pokeScreenGroup.css('animation', 'pokeScreenTopOut 1s ease-in');
-  curtainBottom.css('animation', 'pokeScreenBottomOut 1s ease-in');
+  pokeScreenGroup.css('animation', `pokeScreenTopOut ${curtainTime}s ease-in`);
+  curtainBottom.css('animation', `pokeScreenBottomOut ${curtainTime}s ease-in`);
   setTimeout(() => {
     // ocultar las cortinas
     pokeScreenGroup.css('display', 'none');
@@ -71,7 +76,23 @@ let animationEnd = () => {
     pokeScreenGroup.css('animation', 'none');
     curtainBottom.css('animation', 'none');
     $('#screenChange').css('display', 'none');
-  }, 1000);
+  }, curtainTime * 1000);
 }
+
+
+let pageLoad = () => {
+  $('#pokeScreen-C').css('animation', `fullspin ${spinTime}s forwards infinite linear`);
+  setTimeout(() => {
+    animationEnd(curtainTime, spinTime);
+  }, Math.floor(Math.random() * (spinTime * 2000)) + (spinTime * 1000));
+}
+
+function changeScreen(path) {
+  animateCurtain(curtainTime, spinTime);
+  setTimeout(() => {
+    window.location.href = path;
+  }, (curtainTime + spinTime) * 1000);
+}
+
 
 $(document).ready(curtain);

@@ -1,11 +1,30 @@
 let startAudio = () => {
     audio = new Audio('../sounds/audioFondo.wav');
-    audio.play();
-    audio.volume = 0.35;
+    audio.volume = 0.25;
     audio.loop = true;
 
     musicIcon = $('#music');
     musicIcon.click(toggleMusic);
+    // lanzar un sweet alert para confirmar si quiere reproducir el audio
+    Swal.fire({
+        title: '¿Quieres reproducir el audio?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No',
+        // Establece estilos personalizados para los botones
+        customClass: {
+            confirmButton: 'pokeButton',
+            cancelButton: 'pokeButton-cancel'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            audio.play();
+        } else {
+            musicIcon.attr('src', '../img/musicDeaf.png');
+        }
+    });
+
 }
 
 let toggleMusic = () => {
@@ -18,4 +37,5 @@ let toggleMusic = () => {
         musicIcon.attr('src', '../img/musicDeaf.png');
     }
 }
+
 $(document).ready(startAudio);

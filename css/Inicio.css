@@ -13,6 +13,11 @@
     src: url('../font/Aquarius-RegularMono.ttf') format('truetype');
 }
 
+.swal2-title,
+.swal2-styled {
+    font-family: 'Aquarius';
+}
+
 #contentMenu {
     position: relative;
     width: 100svw;
@@ -44,7 +49,7 @@
 }
 
 #structuresPoke {
-    bottom: 80px;
+    bottom: 15%;
     width: 100%;
     display: grid;
     grid-template-columns: 4fr 1fr 1fr;
@@ -96,24 +101,40 @@
     }
 }
 
-.pokeButton {
-    background-color: #d65353;
-    border-radius: 8px;
-    transition: all 0.3s;
-    box-shadow: 0px 5px 0px #000000;
+.pokeButton,
+.pokeButton-cancel {
+    background-color: #d65353 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s !important;
+    box-shadow: 0px 5px 0px #000000 !important;
 
     &:hover {
-        background-color: #f2f2f2;
-        box-shadow: 0px 5px 0px #000000;
-        transform: translateY(-3px);
-        box-shadow: 0px 8px 0px #000000;
+        background-color: #f2f2f2 !important;
+        box-shadow: 0px 5px 0px #000000 !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0px 8px 0px #000000 !important;
     }
 
     /* cuando se presiona: */
     &:active {
-        background-color: #958a4c;
-        transform: translateY(3px);
-        box-shadow: 0px 2px 0px #000000;
+        background-color: #958a4c !important;
+        transform: translateY(3px) !important;
+        box-shadow: 0px 2px 0px #000000 !important;
+    }
+}
+
+.pokeButton-cancel {
+    background-color: #4b4963 !important;
+    color: #f2f2f2 !important;
+
+    &:hover {
+        background-color: #f2f2f2 !important;
+        color: #100a5c !important;
+    }
+
+    &:active {
+        background-color: #958a4c !important;
+        color: #100a5c !important;
     }
 }
 

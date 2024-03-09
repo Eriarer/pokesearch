@@ -1,0 +1,91 @@
+/* Fuentes */
+.silkscreen-regular {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.silkscreen-bold {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* fin de fuentes */
+
+/* Estableciendo fuentes */
+body,
+html,
+#startButton,
+input[type="text"] {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+#backLoginPage {
+    width: 100%;
+    height: 100%;
+    /* estirar al background para que llene toda la pantalla */
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &>.over {
+        position: absolute;
+        z-index: 2;
+    }
+
+    &>.back {
+        position: absolute;
+        z-index: 1;
+    }
+}
+
+.carta {
+    font-size: 3vh;
+    margin: 5% 6% auto auto;
+
+
+    &>#startButton {
+        margin: 20px;
+        font-size: 40px;
+    }
+
+    &>input[type="text"] {
+        width: 60%;
+        height: 30px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#userData {
+    margin-top: 20px;
+}

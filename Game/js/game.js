@@ -59,7 +59,7 @@ var imagenes = [
 // array para guardar las imagenes que se han usado
 var imagenesUsadas = [];
 
-window.onload = function() {
+window.onload = function () {
     // Llama a la función para mostrar imágenes aleatorias al cargar la página
     for (var i = 1; i <= 3; i++) {
         actualizarImagen(i);
@@ -82,9 +82,9 @@ window.onload = function() {
             var bioma = document.getElementById('bioma' + biomaAleatorio);
             if (bioma.getAttribute('use') == 'False') {
                 // Se cambia la variable de num del vector de imagenes usadas al numero de biomaAleatorio
-                for(var i = 0; i <= imagenesUsadas.length; i++) {
+                for (var i = 0; i <= imagenesUsadas.length; i++) {
                     var pokemon = imagenesUsadas[i].pokemon;
-                    if( pokemon == rutaImagen.pokemon) {
+                    if (pokemon == rutaImagen.pokemon) {
                         imagenesUsadas[i].num = biomaAleatorio;
                         break
                     }
@@ -93,10 +93,9 @@ window.onload = function() {
                 bioma.style.backgroundImage = 'url(' + rutaImagen.fondo + ')';
                 // la imagen de fondo se ajusta al tamaño del bioma
                 bioma.style.backgroundSize = 'cover';
-                // la imagen de fondo se centra en el bioma
-                bioma.style.backgroundPosition = 'center';
-                // ajusta la altura del bioma para que la imagen de fondo se muestre completa
-                bioma.style.height = '15rem';
+                // ajusta la altura del bioma para que la imagen de fondo se en una escala chica de 11 rem
+                bioma.style.height = '11rem';
+                bioma.style.width = '18rem';
                 bioma.setAttribute('use', 'True');
                 break;
             }

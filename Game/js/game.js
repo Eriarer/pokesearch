@@ -117,9 +117,9 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("text");
     var draggedImage = document.getElementById(data);
     var src = 'media/' + draggedImage.src.split('/').pop();
-    for(var i = 0; i <= imagenesUsadas.length; i++) {
+    for (var i = 0; i <= imagenesUsadas.length; i++) {
         var pokemon = imagenesUsadas[i].pokemon;
-        if( pokemon == src) {
+        if (pokemon == src) {
             var posicioncorrecta = imagenesUsadas[i].num;
             break
         }
@@ -127,12 +127,27 @@ function drop(ev) {
     // obtener el id de la drop area
     var dropArea = ev.target.id;
     var biomadrop = 'bioma' + (posicioncorrecta);
-    if (dropArea ==  biomadrop) {
+
+    if (dropArea == biomadrop) {
         ev.target.appendChild(draggedImage);
-        // deshabilita el arrastre de la imagen
+
+        // Deshabilita el arrastre de la imagen
         draggedImage.setAttribute('draggable', 'false');
+
+        // Reproduce el sonido del Pokémon
+        var audio = new Audio(imagenesUsadas[i].voice);
+
+        // Reproduce el sonido
+        audio.play();
+
+        // Define un evento para detener el sonido después de reproducirse una vez
+        audio.addEventListener('ended', function () {
+            // Detiene el sonido
+            audio.pause();
+        });
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     var draggables = document.querySelectorAll('.Pokearea img');

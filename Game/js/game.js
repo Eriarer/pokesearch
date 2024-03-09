@@ -1,14 +1,59 @@
- // Array que contiene las rutas de tus imágenes
- var imagenes = [
-    { pokemon: 'media/001.png', fondo: 'media/001.png', num: 0},
-    { pokemon: 'media/004.png', fondo: 'media/004.png', num: 0},
-    { pokemon: 'media/007.png', fondo: 'media/007.png', num: 0},
-    { pokemon: 'media/025.png', fondo: 'media/025.png', num: 0},
-    { pokemon: 'media/074.png', fondo: 'media/074.png', num: 0},
-    { pokemon: 'media/107.png', fondo: 'media/107.png', num: 0},
-    { pokemon: 'media/397.png', fondo: 'media/397.png', num: 0},
-    { pokemon: 'media/613.png', fondo: 'media/613.png', num: 0},
-    { pokemon: 'media/643.png', fondo: 'media/643.png', num: 0},
+// Array que contiene las rutas de tus imágenes
+var imagenes = [
+    {
+        pokemon: 'media/001.png',
+        fondo: 'media/backgrounds/grass.png',
+        num: 0,
+        voice: 'media/voices/bulbasaur.wav'
+    },
+    {
+        pokemon: 'media/004.png',
+        fondo: 'media/backgrounds/fire.png',
+        num: 0,
+        voice: 'media/voices/charmander.wav'
+    },
+    {
+        pokemon: 'media/007.png',
+        fondo: 'media/backgrounds/water.png',
+        num: 0,
+        voice: 'media/voices/squirtle.wav'
+    },
+    {
+        pokemon: 'media/025.png',
+        fondo: 'media/backgrounds/electric.png',
+        num: 0,
+        voice: 'media/voices/pikachu.wav',
+    },
+    {
+        pokemon: 'media/074.png',
+        fondo: 'media/backgrounds/rock.png',
+        num: 0,
+        voice: 'media/voices/geodude.wav'
+    },
+    {
+        pokemon: 'media/107.png',
+        fondo: 'media/backgrounds/fighting.png',
+        num: 0,
+        voice: 'media/voices/hitmonchan.wav'
+    },
+    {
+        pokemon: 'media/397.png',
+        fondo: 'media/backgrounds/flying.png',
+        num: 0,
+        voice: 'media/voices/staravia.wav'
+    },
+    {
+        pokemon: 'media/613.png',
+        fondo: 'media/backgrounds/ice.png',
+        num: 0,
+        voice: 'media/voices/cubchoo.wav'
+    },
+    {
+        pokemon: 'media/643.png',
+        fondo: 'media/backgrounds/dragon.png',
+        num: 0,
+        voice: 'media/voices/reshiram.wav'
+    },
 ];
 
 // array para guardar las imagenes que se han usado

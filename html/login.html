@@ -11,27 +11,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
+    <audio autoplay loop controls>
+        <source src="../sounds/audioFondo.wav" type="audio/mpeg">
+    </audio>
+
+    <canvas id="backgroundCanvas"></canvas>
     <div class="container">
-        <img id="backLoginPage" src="../img/fondoLogin.png" alt="">
-        <div class="carta over">
-            <h1>Nombre del Jugador</h1>
-            <input type="text" id="usernameInput" placeholder="Ingrese su nombre de usuario">
+        <div class="carta">
+            <div id="divAlias">
+                <h1>Inicia tu aventura</h1>
+                <input type="text" id="usernameInput" placeholder="¿Cómo te llamas?">
+                <input type="button" id="startButton" class="pokeButton" disabled class="boton" value="JUGAR">
+            </div>
             <div id="userData" style="display: none;">
                 <p id="welcomeMessage"></p>
                 <p>Puntaje máximo: <span id="maxScore"></span></p>
                 <p>Tiempo: <span id="time"></span></p>
             </div>
-            <!-- <button id="startButton" disabled>Iniciar juego</button> -->
-            <input type="button" id="startButton" disabled class="boton" onclick="guardarDatos()" value="JUGAR">
         </div>
+
     </div>
+
+
+    <script src="../JS/login.js"></script>
+
+    <script>
+
+    </script>
 </body>
-
-<script src="../JS/login.js"></script>
-
-
 
 </html>

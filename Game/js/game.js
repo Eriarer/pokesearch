@@ -1,63 +1,63 @@
 // Array que contiene las rutas de tus imágenes
 var imagenes = [
     {
-        pokemon: 'media/001.png',
+        pokemon: 'pokemon/media/001.png',
         fondo: 'media/backgrounds/grass.png',
         num: 0,
         voice: 'media/voices/bulbasaur.wav',
         name: 'Bulbasaur'
     },
     {
-        pokemon: 'media/004.png',
+        pokemon: 'pokemon/media/004.png',
         fondo: 'media/backgrounds/fire.png',
         num: 0,
         voice: 'media/voices/charmander.wav',
         name: 'Charmander'
     },
     {
-        pokemon: 'media/007.png',
+        pokemon: 'pokemon/media/007.png',
         fondo: 'media/backgrounds/water.png',
         num: 0,
         voice: 'media/voices/squirtle.wav',
         name: 'Squirtle'
     },
     {
-        pokemon: 'media/025.png',
+        pokemon: 'pokemon/media/025.png',
         fondo: 'media/backgrounds/electric.png',
         num: 0,
         voice: 'media/voices/pikachu.wav',
         name: 'Pikachu'
     },
     {
-        pokemon: 'media/074.png',
+        pokemon: 'pokemon/media/074.png',
         fondo: 'media/backgrounds/rock.png',
         num: 0,
         voice: 'media/voices/geodude.wav',
         name: 'Geodude'
     },
     {
-        pokemon: 'media/107.png',
+        pokemon: 'pokemon/media/107.png',
         fondo: 'media/backgrounds/fighting.png',
         num: 0,
         voice: 'media/voices/hitmonchan.wav',
         name: 'Hitmonchan'
     },
     {
-        pokemon: 'media/397.png',
+        pokemon: 'pokemon/media/397.png',
         fondo: 'media/backgrounds/flying.png',
         num: 0,
         voice: 'media/voices/staravia.wav',
         name: 'Staravia'
     },
     {
-        pokemon: 'media/613.png',
+        pokemon: 'pokemon/media/613.png',
         fondo: 'media/backgrounds/ice.png',
         num: 0,
         voice: 'media/voices/cubchoo.wav',
         name: 'Cubchoo'
     },
     {
-        pokemon: 'media/643.png',
+        pokemon: 'pokemon/media/643.png',
         fondo: 'media/backgrounds/dragon.png',
         num: 0,
         voice: 'media/voices/reshiram.wav',

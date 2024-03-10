@@ -16,7 +16,7 @@ canvas {
 
 .container {
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -84,6 +84,27 @@ canvas {
 
 .pokeButton {
     background-color: #d65353;
+    border-radius: 8px;
+    transition: all 0.3s;
+    box-shadow: 0px 5px 0px #000000;
+
+    &:hover {
+        box-shadow: 0px 5px 0px #000000;
+        transform: translateY(-3px);
+        box-shadow: 0px 8px 0px #000000;
+    }
+
+    /* cuando se presiona: */
+    &:active {
+        background-color: #958a4c;
+        transform: translateY(3px);
+        box-shadow: 0px 2px 0px #000000;
+    }
+}
+
+#startButton {
+    background-color: #888080;
+    color: white;
     border-radius: 8px;
     transition: all 0.3s;
     box-shadow: 0px 5px 0px #000000;

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('modal.css');
+
+#icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  max-width: 200px;
+  max-height: 100px;
+  margin: 0;
+  padding: 1em;
+
+  display: flex;
+  /* alinear a la izquierda */
+  justify-content: flex-start;
+  /* agregarle un padding entre elemento y elemento */
+  gap: 1em;
+  align-items: center;
+
+
+  &>button {
+    width: 50px;
+    height: 50px;
+
+    &>* {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+.pokeButton,
+.pokeButton-cancel,
+.pokeButton-disabled {
+  background-color: #d65353;
+  border-radius: 8px;
+  transition: all 0.3s;
+  box-shadow: 0px 5px 0px #000000;
+
+  &:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0px 5px 0px #000000;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 0px #000000;
+  }
+
+  /* cuando se presiona: */
+  &:active {
+    background-color: #958a4c;
+    transform: translateY(3px);
+    box-shadow: 0px 2px 0px #000000;
+  }
+}
+
+
+.pokeButton-cancel {
+  background-color: #4b4963;
+  color: #f2f2f2;
+
+  &:hover {
+    background-color: #f2f2f2;
+    color: #100a5c;
+  }
+
+  &:active {
+    background-color: #958a4c;
+    color: #100a5c;
+  }
+}
+
+.pokeButton-disabled {
+  background-color: #23203e;
+  color: #7d7a7a;
+  cursor: not-allowed;
+  pointer-events: hover;
+
+  &:hover {
+    background-color: #252334;
+    color: #4d4949;
+    transform: translateY(2px);
+    box-shadow: 0px 3px 0px #000000;
+  }
+}

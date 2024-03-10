@@ -9,6 +9,12 @@
     <!-- Boostrap v4.6.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- css -->
@@ -19,10 +25,11 @@
 </head>
 
 <body>
-
     <div id="icons">
-        <img id="PL" src="../img/PL.png" alt="">
-        <button class="pokeButton" id="btnExit">
+        <button class="pokeButton" onclick="changePage('inicio.html')">
+            <img id="PL" src="../img/PL.png" alt="">
+        </button>
+        <button class="pokeButton" onclick="mostrarAlerta()">
             <img id="exit" src="../img/salir.png" alt="">
         </button>
         <button class="pokeButton" id="btnMusic">
@@ -31,7 +38,6 @@
     </div>
 
     <div id="contentMenu">
-
         <img id="backgroundPoke" class="back" src="../img/fondoInicio.png" alt="">
         <div class="back" id="structuresPoke">
             <img src="../img/centroPokemon.png" alt="">
@@ -40,35 +46,36 @@
         </div>
         <div class="card" id="menuButtons">
             <img id="pokelearn" src="../img/pokelearn.png" alt="">
-            <button onclick="jugar()" class="pokeButton">Jugar</button>
-            <button onclick="creditos()" class="pokeButton">Créditos</button>
-            <button onclick="tablero()" class="pokeButton">Puntuaciones</button>
+            <button onclick="changePage('login.html')" class="pokeButton">Jugar</button>
+            <button onclick="changePage('creditos.html')" class="pokeButton">Créditos</button>
+            <button onclick="changePage('tablero.html')" class="pokeButton">Puntuaciones</button>
         </div>
 
     </div>
 
-
-    <!-- Boostrap v4.6.2 -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-        crossorigin="anonymous"></script>
-
-    <script src="../JS/music.js"></script>
+    <!-- Modal -->
     <script>
-        function jugar() {
-            window.location.href = "login.html";
-        }
-        function creditos() {
-            window.location.href = "creditos.html";
-        }
-        function tablero() {
-            window.location.href = "tablero.html";
+        function mostrarAlerta() {
+            Swal.fire({
+                title: '¿Quieres cerrar el juego?',
+                imageUrl: 'https://via.placeholder.com/150', // URL de la imagen que deseas mostrar
+                imageAlt: 'Imagen',
+                showCancelButton: true,
+                confirmButtonText: 'Salir',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Aquí puedes agregar la lógica para cerrar el juego
+                    // Por ejemplo, redireccionar a una página de salida
+                    window.location.href = 'salida.html';
+                }
+            });
         }
     </script>
 
+    <script src="../JS/music.js"></script>
 </body>
 
 </html>

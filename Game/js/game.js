@@ -5,6 +5,7 @@ var imagenes = [
         fondo: 'media/backgrounds/grass.png',
         num: 0,
         voice: 'media/voices/bulbasaur.wav',
+        voicename: 'media/names/bulbasaur.wav',
         name: 'Bulbasaur'
     },
     {
@@ -12,6 +13,7 @@ var imagenes = [
         fondo: 'media/backgrounds/fire.png',
         num: 0,
         voice: 'media/voices/charmander.wav',
+        voicename: 'media/names/charmander.wav',
         name: 'Charmander'
     },
     {
@@ -19,6 +21,7 @@ var imagenes = [
         fondo: 'media/backgrounds/water.png',
         num: 0,
         voice: 'media/voices/squirtle.wav',
+        voicename: 'media/names/squirtle.wav',
         name: 'Squirtle'
     },
     {
@@ -26,6 +29,7 @@ var imagenes = [
         fondo: 'media/backgrounds/electric.png',
         num: 0,
         voice: 'media/voices/pikachu.wav',
+        voicename: 'media/names/pikachu.wav',
         name: 'Pikachu'
     },
     {
@@ -33,6 +37,7 @@ var imagenes = [
         fondo: 'media/backgrounds/rock.png',
         num: 0,
         voice: 'media/voices/geodude.wav',
+        voicename: 'media/names/geodude.wav',
         name: 'Geodude'
     },
     {
@@ -40,6 +45,7 @@ var imagenes = [
         fondo: 'media/backgrounds/fighting.png',
         num: 0,
         voice: 'media/voices/hitmonchan.wav',
+        voicename: 'media/names/hitmonchan.wav',
         name: 'Hitmonchan'
     },
     {
@@ -47,6 +53,7 @@ var imagenes = [
         fondo: 'media/backgrounds/flying.png',
         num: 0,
         voice: 'media/voices/staravia.wav',
+        voicename: 'media/names/staravia.wav',
         name: 'Staravia'
     },
     {
@@ -54,6 +61,7 @@ var imagenes = [
         fondo: 'media/backgrounds/ice.png',
         num: 0,
         voice: 'media/voices/cubchoo.wav',
+        voicename: 'media/names/cubchoo.wav',
         name: 'Cubchoo'
     },
     {
@@ -61,6 +69,7 @@ var imagenes = [
         fondo: 'media/backgrounds/dragon.png',
         num: 0,
         voice: 'media/voices/reshiram.wav',
+        voicename: 'media/names/reshiram.wav',
         name: 'Reshiram'
     },
 ];
@@ -153,11 +162,17 @@ function drop(ev) {
         audio.addEventListener('ended', function () {
             // Detiene el sonido
             audio.pause();
+            var nameaudio = new Audio(imagenesUsadas[i].voicename);
+            nameaudio.play();
+            nameaudio.addEventListener('ended', function () {
+                nameaudio.pause();
+                var nombre = document.getElementById('pbiom' + posicioncorrecta);
+                nombre.innerHTML = imagenesUsadas[i].name;
+            });
         });
 
         // Muestra el nombre del Pokémon
-        var nombre = document.getElementById('pbiom' + posicioncorrecta);
-        nombre.innerHTML = imagenesUsadas[i].name;
+        
     }
 }
 

@@ -24,7 +24,7 @@
   <body>
 
     <div id="icons">
-      <button class="pokeButton" onclick="changePage('inicio.html')">
+      <button class="pokeButton" onclick="changePage('../index.html')">
         <img id="PL" src="../media/buttons/PL.png" alt="">
       </button>
       <button class="pokeButton" id="btnMusic">
@@ -61,7 +61,7 @@
             <img src="../media/modal/pikaSad.png" alt="">
             <div id="exitModButtons">
               <button class="pokeButton" data-dismiss="modal">Cancelar</button>
-              <button class="pokeButton-cancel" onclick="changePage('inicio.html')">Menú</button>
+              <button class="pokeButton-cancel" onclick="changePage('../index.html')">Menú</button>
               <button class="pokeButton-cancel" onclick="window.opener.close()">Salir</button>
             </div>
           </div>
@@ -71,11 +71,6 @@
 
     <script src="../js/login.js"></script>
     <script src="../js/music.js"></script>
-    <script>
-      function prubFinal() {
-        window.location.href = "final.html";
-      }
-    </script>
   </body>
 
 </html>

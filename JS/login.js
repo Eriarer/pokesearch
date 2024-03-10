@@ -105,7 +105,7 @@ function startGame() {
         });
         localStorage.setItem('usersData', JSON.stringify(usersData));
     }
-    window.location.href = 'final.html';
+    window.location.href = '../game.html';
 }
 
 // Event listener para el cambio en el input
@@ -114,24 +114,24 @@ usernameInput.addEventListener('input', handleUsernameChange);
 // Event listener para el botón de iniciar juego
 startButton.addEventListener('click', startGame);
 
-// Ejemplo de usuarios predefinidos
-const exampleUsers = [
-    {
-        username: 'usuario1',
-        score: 100,
-        time: '01:30',
-        jugando: 0
-    },
-    {
-        username: 'usuario2',
-        score: 150,
-        time: '02:00',
-        jugando: 0
-    }
-];
+// // Ejemplo de usuarios predefinidos
+// const exampleUsers = [
+//     {
+//         username: 'usuario1',
+//         score: 100,
+//         time: '01:30',
+//         jugando: 0
+//     },
+//     {
+//         username: 'usuario2',
+//         score: 150,
+//         time: '02:00',
+//         jugando: 0
+//     }
+// ];
 
-// Guardar usuarios predefinidos en localStorage
-localStorage.setItem('usersData', JSON.stringify(exampleUsers));
+// // Guardar usuarios predefinidos en localStorage
+// localStorage.setItem('usersData', JSON.stringify(exampleUsers));
 
 
 

@@ -17,6 +17,10 @@ window.onload = function () {
 };
 
 //////////////////////// Fin de Canvas ////////////////////////
+//Si el buton de "JUGAR" esta desabilitado se ponen los siguientes estilos:
+if (document.getElementById("startButton").disabled) {
+    document.getElementById("startButton").style.backgroundColor = "gray";
+}
 
 const usernameInput = document.getElementById('usernameInput');
 const startButton = document.getElementById('startButton');
@@ -28,6 +32,11 @@ const userDataDiv = document.getElementById('userData');
 // Enfocar el input al cargar la página
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("usernameInput").focus();
+    //jugando=0 en todos los jugadores
+    let userData = JSON.parse(localStorage.getItem('usersData')) || [];
+    userData.forEach(user => {
+        user.jugando = 0;
+    });
 });
 
 // Función para verificar si el usuario existe en localStorage
@@ -57,25 +66,30 @@ function handleUsernameChange() {
     if (username === '') {
         startButton.disabled = true;
         hideUserData();
+        document.getElementById("startButton").style.backgroundColor = "gray";
     } else if (userExists) {
         startButton.disabled = false;
         showUserData(userExists);
+        document.getElementById("startButton").style.backgroundColor = "#d65353";
+
     } else {
         startButton.disabled = false;
         hideUserData();
         welcomeMessage.innerText = '¡Bienvenido nuevo jugador!';
+        document.getElementById("startButton").style.backgroundColor = "#d65353";
     }
 }
 
 // Función para manejar el inicio del juego
 function startGame() {
-    const username = usernameInput.value.trim(); // Obtener el nombre de usuario
+    var username = usernameInput.value.trim(); // Obtener el nombre de usuario
     if (username === '') return; // Si el nombre de usuario está vacío, no hacer nada
     if (!checkUserExists(username)) { // Si el usuario no existe, crearlo
         const newUser = {
             username: username,
             score: 0,
-            time: '00:00'
+            time: '00:00',
+            juagando: 1
         };
 
         const usersData = JSON.parse(localStorage.getItem('usersData')) || [];
@@ -83,9 +97,17 @@ function startGame() {
         localStorage.setItem('usersData', JSON.stringify(usersData));
         //Comenzar el juego
     }
-    // Si el usuario ya existe comenzar el juego!
-
-
+    else {
+        //Si el usuario ya existe comenzar el juego
+        const usersData = JSON.parse(localStorage.getItem('usersData')) || [];
+        usersData.forEach(user => {
+            if (user.username === username) {
+                user.jugando = 1;
+            }
+        });
+        localStorage.setItem('usersData', JSON.stringify(usersData));
+    }
+    window.location.href = 'final.html';
 }
 
 // Event listener para el cambio en el input
@@ -99,14 +121,20 @@ const exampleUsers = [
     {
         username: 'usuario1',
         score: 100,
-        time: '01:30'
+        time: '01:30',
+        jugando: 0
     },
     {
         username: 'usuario2',
         score: 150,
-        time: '02:00'
+        time: '02:00',
+        jugando: 0
     }
 ];
 
 // Guardar usuarios predefinidos en localStorage
 localStorage.setItem('usersData', JSON.stringify(exampleUsers));
+
+
+
+

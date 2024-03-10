@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeLearn | Puntuacion</title>
     <!-- favIcon -->
-    <link rel="icon" type="image/x-icon" href="../img/PL.png" />
+    <link rel="icon" type="image/x-icon" href="../media/PL.png" />
 
     <!-- Boostrap v4.6.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -25,17 +25,17 @@
   <body>
     <div id="icons">
       <button class="pokeButton" onclick="changePage('inicio.html')">
-        <img id="PL" src="../img/PL.png" alt="">
+        <img id="PL" src="../media/PL.png" alt="">
       </button>
       <button class="pokeButton" id="btnMusic">
-        <img id="music" src="../img/music.png" alt="">
+        <img id="music" src="../media/music.png" alt="">
       </button>
       <button class="pokeButton" data-toggle="modal" data-target="#exitModal">
-        <img id="exit" src="../img/salir.png" alt="">
+        <img id="exit" src="../media/salir.png" alt="">
       </button>
     </div>
     <div class="containerCredits">
-      <img id="backgroundP" class="back" src="../img/fondoInicio.png" alt="">
+      <img id="backgroundP" class="back" src="../media/fondoInicio.png" alt="">
 
       <div class="carta over">
         <h2>Tabla de Usuarios</h2>
@@ -62,7 +62,7 @@
         <div class="modal-content">
           <div class="modal-body">
             <h1>¿Deseas salir?</h1>
-            <img src="../img/pikaSad.png" alt="">
+            <img src="../media/pikaSad.png" alt="">
             <div id="exitModButtons">
               <button class="pokeButton" data-dismiss="modal">Cancelar</button>
               <button class="pokeButton-cancel" onclick="changePage('inicio.html')">Menú</button>
@@ -73,10 +73,10 @@
       </div>
     </div>
 
-    <script src="../JS/LocalStorage.js" type="module"></script>
-    <script src="../JS/music.js"></script>
+    <script src="../js/LocalStorage.js" type="module"></script>
+    <script src="../js/music.js"></script>
     <script type="module">
-      import { usersDataOrder } from '../JS/LocalStorage.js';
+      import { usersDataOrder } from '../js/LocalStorage.js';
       window.onload = function () {
         const tablaBody = document.getElementById('tablaBody');
 

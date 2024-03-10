@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeLearn | Jugar</title>
     <!-- favIcon -->
-    <link rel="icon" type="image/x-icon" href="../img/PL.png" />
+    <link rel="icon" type="image/x-icon" href="../media/PL.png" />
     <!-- Boostrap v4.6.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
@@ -25,13 +25,13 @@
 
     <div id="icons">
       <button class="pokeButton" onclick="changePage('inicio.html')">
-        <img id="PL" src="../img/PL.png" alt="">
+        <img id="PL" src="../media/PL.png" alt="">
       </button>
       <button class="pokeButton" id="btnMusic">
-        <img id="music" src="../img/music.png" alt="">
+        <img id="music" src="../media/music.png" alt="">
       </button>
       <button class="pokeButton" data-toggle="modal" data-target="#exitModal">
-        <img id="exit" src="../img/salir.png" alt="">
+        <img id="exit" src="../media/salir.png" alt="">
       </button>
     </div>
 
@@ -58,7 +58,7 @@
         <div class="modal-content">
           <div class="modal-body">
             <h1>¿Deseas salir?</h1>
-            <img src="../img/pikaSad.png" alt="">
+            <img src="../media/pikaSad.png" alt="">
             <div id="exitModButtons">
               <button class="pokeButton" data-dismiss="modal">Cancelar</button>
               <button class="pokeButton-cancel" onclick="changePage('inicio.html')">Menú</button>
@@ -69,8 +69,8 @@
       </div>
     </div>
 
-    <script src="../JS/login.js"></script>
-    <script src="../JS/music.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/music.js"></script>
     <script>
       function prubFinal() {
         window.location.href = "final.html";

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let x = (canvas.width - (felicitaciones.length * 20)) / 1.8;
 
     const img = new Image();
-    img.src = "../img/backFinal.png";
+    img.src = "../media/backFinal.png";
     img.onload = function () {
         //obteniendo el tamaño del canvas para ajustar la imagen a ese tamaño
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.fillText("Todos te lo agradecen mucho.", 250, 350);
     }
     const pikachu = new Image();
-    pikachu.src = "../img/celebrando.png";
+    pikachu.src = "../media/celebrando.png";
     pikachu.onload = function () {
         ctx.drawImage(pikachu, 250, 350, 800, 250);
     }

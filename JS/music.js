@@ -13,15 +13,15 @@ let startAudio = () => {
         audio.currentTime = musicCurrentTime;
         if (promise !== undefined) {
             promise.then(_ => { // Playback started
-                musicIcon.attr('src', '../img/music.png');
+                musicIcon.attr('src', '../media/music.png');
                 muted = false;
             }).catch(error => { //No se pudo reproducir el audio
-                musicIcon.attr('src', '../img/musicDeaf.png');
+                musicIcon.attr('src', '../media/musicDeaf.png');
                 muted = true;
             });
         }
     } else {
-        musicIcon.attr('src', '../img/musicDeaf.png');
+        musicIcon.attr('src', '../media/musicDeaf.png');
     }
 }
 
@@ -29,11 +29,11 @@ let toggleMusic = () => {
     // Si esta pausado, lo reproduce y cambia el icono
     if (audio.paused) {
         audio.play();
-        musicIcon.attr('src', '../img/music.png');
+        musicIcon.attr('src', '../media/music.png');
         muted = false;
     } else { // Si esta reproduciendo, lo pausa y cambia el icono
         audio.pause();
-        musicIcon.attr('src', '../img/musicDeaf.png');
+        musicIcon.attr('src', '../media/musicDeaf.png');
         muted = true;
     }
 }

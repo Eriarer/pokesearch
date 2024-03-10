@@ -13,7 +13,7 @@ window.onload = function () {
     fondo.onload = function () {
         ctx.drawImage(fondo, 0, 0, canvas.width, canvas.height);
     };
-    fondo.src = '../img/atardecer.jpg';
+    fondo.src = '../media/atardecer.jpg';
 };
 
 //////////////////////// Fin de Canvas ////////////////////////

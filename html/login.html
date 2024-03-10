@@ -5,16 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificación de usuario</title>
-    <link rel="stylesheet" href="../css/login.css">
-    <!-- font-family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/icons.css">
 </head>
 
 <body>
+
+    <div id="icons">
+        <img id="PL" src="../img/PL.png" alt="">
+        <button class="pokeButton" id="btnExit" onclick="exit()">
+            <img id="exit" src="../img/salir.png" alt="">
+        </button>
+        <button class="pokeButton" id="btnMusic">
+            <img id="music" src="../img/music.png" alt="">
+        </button>
+    </div>
 
     <canvas id="backgroundCanvas"></canvas>
     <div class="container">
@@ -22,7 +28,8 @@
             <div id="divAlias">
                 <h1>Inicia tu aventura</h1>
                 <input type="text" id="usernameInput" placeholder="¿Cómo te llamas?">
-                <input type="button" id="startButton" class="pokeButton" disabled class="boton" value="JUGAR">
+                <input type="button" id="startButton" class="pokeButton" onclick="prubFinal()" disabled class="boton"
+                    value="JUGAR">
             </div>
             <div id="userData" style="display: none;">
                 <p id="welcomeMessage"></p>
@@ -35,9 +42,11 @@
 
 
     <script src="../JS/login.js"></script>
-
+    <script src="../JS/music.js"></script>
     <script>
-
+        function prubFinal() {
+            window.location.href = "final.html";
+        }
     </script>
 </body>
 

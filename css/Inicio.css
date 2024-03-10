@@ -100,7 +100,7 @@ body {
   width: 120px;
   object-fit: cover;
   z-index: -1;
-  animation: pikaRun 25s 5s linear infinite;
+  animation: pikaRun 30s linear infinite;
   transform: translateX(-100svw);
 }
 
@@ -121,14 +121,22 @@ body {
 
 @keyframes pikaRun {
   0% {
-    transform: translateX(-50svw);
+    transform: translateX(-80svw) scaleX(-0.5) scaleY(0.5) translateY(-100%);
   }
 
-  40% {
+  15% {
+    transform: translateX(-80svw) scaleX(-0.5) scaleY(0.5) translateY(-100%);
+  }
+
+  16% {
+    transform: translateX(-80svw);
+  }
+
+  50% {
     transform: translateX(150svw);
   }
 
-  41% {
+  51% {
     transform: translateX(105svw) scaleX(-0.5) scaleY(0.5) translateY(-100%);
   }
 

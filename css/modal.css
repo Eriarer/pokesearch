@@ -1,0 +1,35 @@
+.modal {
+  box-shadow: inset 0px 0px 800px -50px #1d0045e7;
+}
+
+.modal-content {
+  background-color: rgba(64, 85, 144, 0.846);
+  width: fit-content;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Silkscreen';
+  color: #fffdfd;
+
+  &>img {
+    width: 40%;
+    height: auto;
+  }
+
+  &>#exitModButtons {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 2em;
+
+    &>button {
+      margin: 0 10px;
+    }
+  }
+}

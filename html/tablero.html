@@ -1,142 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla de Usuarios</title>
+    <title>PokeLearn | Puntuacion</title>
+    <!-- favIcon -->
+    <link rel="icon" type="image/x-icon" href="../img/PL.png" />
 
     <!-- Boostrap v4.6.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-        crossorigin="anonymous"></script>
+            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+            crossorigin="anonymous"></script>
 
-    <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            padding: 0;
-            margin: 0;
-            overflow: hidden;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Silkscreen;
-
-
-            &>.over {
-                position: absolute;
-                z-index: 2;
-            }
-
-            &>.back {
-                position: absolute;
-                z-index: 1;
-            }
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            text-align: center;
-        }
-
-        table td {
-            margin: 30px;
-            padding: 10px;
-        }
-
-        #backgroundP {
-            width: 100%;
-            background-repeat: no-repeat;
-            background-position: bottom;
-            background-size: cover;
-
-        }
-
-        .carta {
-            position: absolute;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            background-color: rgb(237, 238, 202);
-            border: 8px solid #b18c4f;
-        }
-    </style>
     <link rel="stylesheet" href="../css/icons.css">
-</head>
+    <link rel="stylesheet" href="../css/tablero.css">
+  </head>
 
-<body>
+  <body>
     <div id="icons">
-        <button class="pokeButton" onclick="changePage('inicio.html')">
-            <img id="PL" src="../img/PL.png" alt="">
-        </button>
-        <button class="pokeButton">
-            <img id="exit" src="../img/salir.png" alt="">
-        </button>
-        <button class="pokeButton" id="btnMusic">
-            <img id="music" src="../img/music.png" alt="">
-        </button>
+      <button class="pokeButton" onclick="changePage('inicio.html')">
+        <img id="PL" src="../img/PL.png" alt="">
+      </button>
+      <button class="pokeButton" id="btnMusic">
+        <img id="music" src="../img/music.png" alt="">
+      </button>
+      <button class="pokeButton" data-toggle="modal" data-target="#exitModal">
+        <img id="exit" src="../img/salir.png" alt="">
+      </button>
     </div>
-    <div class="container">
-        <img id="backgroundP" class="back" src="../img/fondoInicio.png" alt="">
+    <div class="containerCredits">
+      <img id="backgroundP" class="back" src="../img/fondoInicio.png" alt="">
 
-        <div class="carta over">
-            <h2>Tabla de Usuarios</h2>
-            <div id="tablaUsuarios">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Puntaje</th>
-                            <th>Tiempo</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaBody">
-                        <!-- Aquí se agregarán las filas de la tabla dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
+      <div class="carta over">
+        <h2>Tabla de Usuarios</h2>
+        <div id="tablaUsuarios">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Puntaje</th>
+                <th>Tiempo</th>
+              </tr>
+            </thead>
+            <tbody id="tablaBody">
+              <!-- Aquí se agregarán las filas de la tabla dinámicamente -->
+            </tbody>
+          </table>
         </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exitModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h1>¿Deseas salir?</h1>
+            <img src="../img/pikaSad.png" alt="">
+            <div id="exitModButtons">
+              <button class="pokeButton" data-dismiss="modal">Cancelar</button>
+              <button class="pokeButton-cancel" onclick="changePage('inicio.html')">Menú</button>
+              <button class="pokeButton-cancel" onclick="window.opener.close()">Salir</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="../JS/LocalStorage.js" type="module"></script>
     <script src="../JS/music.js"></script>
     <script type="module">
-        import { usersDataOrder } from '../JS/LocalStorage.js';
+      import { usersDataOrder } from '../JS/LocalStorage.js';
 
-        window.onload = function () {
-            const tablaBody = document.getElementById('tablaBody');
+      window.onload = function () {
+        const tablaBody = document.getElementById('tablaBody');
 
-            // Obtener los usuarios ordenados por tiempo
-            const usuariosOrdenados = usersDataOrder();
+        // Obtener los usuarios ordenados por tiempo
+        const usuariosOrdenados = usersDataOrder();
 
-            // Iterar sobre los usuarios ordenados y agregar filas a la tabla
-            usuariosOrdenados.forEach(user => {
-                const fila = document.createElement('tr');
-                fila.innerHTML = `
+        // Iterar sobre los usuarios ordenados y agregar filas a la tabla
+        usuariosOrdenados.forEach(user => {
+          const fila = document.createElement('tr');
+          fila.innerHTML = `
             <td>${user.username}</td>
             <td>${user.score}</td>
             <td>${user.time}</td>
         `;
-                tablaBody.appendChild(fila);
-            });
-        };
+          tablaBody.appendChild(fila);
+        });
+      };
     </script>
-</body>
+  </body>
 
 </html>

@@ -1,0 +1,54 @@
+.containerCredits {
+  position: relative;
+  width: 100svw;
+  height: 100svh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Silkscreen;
+
+
+  &>.over {
+    position: absolute;
+    z-index: 2;
+  }
+
+  &>.back {
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+table td {
+  margin: 30px;
+  padding: 10px;
+}
+
+#backgroundP {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.carta {
+  position: absolute;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(237, 238, 202);
+  border: 8px solid #b18c4f;
+
+}

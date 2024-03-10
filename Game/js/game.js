@@ -1,7 +1,7 @@
 // Array que contiene las rutas de tus imágenes
 var imagenes = [
     {
-        pokemon: 'pokemon/media/001.png',
+        pokemon: 'media/pokemon/001.png',
         fondo: 'media/backgrounds/grass.png',
         num: 0,
         voice: 'media/voices/bulbasaur.wav',
@@ -9,7 +9,7 @@ var imagenes = [
         name: 'Bulbasaur'
     },
     {
-        pokemon: 'pokemon/media/004.png',
+        pokemon: 'media/pokemon/004.png',
         fondo: 'media/backgrounds/fire.png',
         num: 0,
         voice: 'media/voices/charmander.wav',
@@ -17,7 +17,7 @@ var imagenes = [
         name: 'Charmander'
     },
     {
-        pokemon: 'pokemon/media/007.png',
+        pokemon: 'media/pokemon/007.png',
         fondo: 'media/backgrounds/water.png',
         num: 0,
         voice: 'media/voices/squirtle.wav',
@@ -25,7 +25,7 @@ var imagenes = [
         name: 'Squirtle'
     },
     {
-        pokemon: 'pokemon/media/025.png',
+        pokemon: 'media/pokemon/025.png',
         fondo: 'media/backgrounds/electric.png',
         num: 0,
         voice: 'media/voices/pikachu.wav',
@@ -33,7 +33,7 @@ var imagenes = [
         name: 'Pikachu'
     },
     {
-        pokemon: 'pokemon/media/074.png',
+        pokemon: 'media/pokemon/074.png',
         fondo: 'media/backgrounds/rock.png',
         num: 0,
         voice: 'media/voices/geodude.wav',
@@ -41,7 +41,7 @@ var imagenes = [
         name: 'Geodude'
     },
     {
-        pokemon: 'pokemon/media/107.png',
+        pokemon: 'media/pokemon/107.png',
         fondo: 'media/backgrounds/fighting.png',
         num: 0,
         voice: 'media/voices/hitmonchan.wav',
@@ -49,7 +49,7 @@ var imagenes = [
         name: 'Hitmonchan'
     },
     {
-        pokemon: 'pokemon/media/397.png',
+        pokemon: 'media/pokemon/397.png',
         fondo: 'media/backgrounds/flying.png',
         num: 0,
         voice: 'media/voices/staravia.wav',
@@ -57,7 +57,7 @@ var imagenes = [
         name: 'Staravia'
     },
     {
-        pokemon: 'pokemon/media/613.png',
+        pokemon: 'media/pokemon/613.png',
         fondo: 'media/backgrounds/ice.png',
         num: 0,
         voice: 'media/voices/cubchoo.wav',
@@ -65,7 +65,7 @@ var imagenes = [
         name: 'Cubchoo'
     },
     {
-        pokemon: 'pokemon/media/643.png',
+        pokemon: 'media/pokemon/643.png',
         fondo: 'media/backgrounds/dragon.png',
         num: 0,
         voice: 'media/voices/reshiram.wav',
@@ -134,7 +134,7 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     var draggedImage = document.getElementById(data);
-    var src = 'media/' + draggedImage.src.split('/').pop();
+    var src = 'media/pokemon/' + draggedImage.src.split('/').pop();
     for (var i = 0; i <= imagenesUsadas.length; i++) {
         var pokemon = imagenesUsadas[i].pokemon;
         if (pokemon == src) {

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Usuarios</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Silkscreen;
+
+
+            &>.over {
+                position: absolute;
+                z-index: 2;
+            }
+
+            &>.back {
+                position: absolute;
+                z-index: 1;
+            }
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+
+        table td {
+            margin: 30px;
+            padding: 10px;
+        }
+
+        #backgroundP {
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+
+        }
+
+        .carta {
+            position: absolute;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: rgb(237, 238, 202);
+            border: 8px solid #b18c4f;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/icons.css">
+</head>
+
+<body>
+    <div id="icons">
+        <img id="PL" src="../img/PL.png" alt="">
+        <button class="pokeButton" id="btnExit">
+            <img id="exit" src="../img/salir.png" alt="">
+        </button>
+        <button class="pokeButton" id="btnMusic">
+            <img id="music" src="../img/music.png" alt="">
+        </button>
+    </div>
+    <div class="container">
+        <img id="backgroundP" class="back" src="../img/fondoInicio.png" alt="">
+
+        <div class="carta over">
+            <h2>Tabla de Usuarios</h2>
+            <div id="tablaUsuarios">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Puntaje</th>
+                            <th>Tiempo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaBody">
+                        <!-- Aquí se agregarán las filas de la tabla dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/LocalStorage.js" type="module"></script>
+    <script type="module">
+        import { usersDataOrder } from '../JS/LocalStorage.js';
+
+        window.onload = function () {
+            const tablaBody = document.getElementById('tablaBody');
+
+            // Obtener los usuarios ordenados por tiempo
+            const usuariosOrdenados = usersDataOrder();
+
+            // Iterar sobre los usuarios ordenados y agregar filas a la tabla
+            usuariosOrdenados.forEach(user => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+            <td>${user.username}</td>
+            <td>${user.score}</td>
+            <td>${user.time}</td>
+        `;
+                tablaBody.appendChild(fila);
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
     &>button {
         position: absolute;
         z-index: 5;
-        margin: 5px;
+        margin: 12px;
         width: 50px;
         height: 50px;
 
@@ -13,5 +13,42 @@
             width: 100%;
             height: 100%;
         }
+    }
+
+    &>#PL {
+        margin: 10px;
+        padding: 7px;
+        width: 70px;
+        background-color: #d65353;
+        border-radius: 50%;
+    }
+
+    &>#btnMusic {
+        transform: translateX(60px);
+    }
+
+    &>#btnExit {
+        transform: translateX(5px);
+    }
+}
+
+.pokeButton {
+    background-color: #d65353;
+    border-radius: 8px;
+    transition: all 0.3s;
+    box-shadow: 0px 5px 0px #000000;
+
+    &:hover {
+        background-color: #f2f2f2;
+        box-shadow: 0px 5px 0px #000000;
+        transform: translateY(-3px);
+        box-shadow: 0px 8px 0px #000000;
+    }
+
+    /* cuando se presiona: */
+    &:active {
+        background-color: #958a4c;
+        transform: translateY(3px);
+        box-shadow: 0px 2px 0px #000000;
     }
 }

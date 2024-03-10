@@ -5,11 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
     <script src="js/game.js"></script>
+    <script src="js/pokeClock.js"></script>
     <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/pokeclock.css">
 </head>
 
 <body>
+    <div id="header">
+        <div id="pokeClock">
+            <img src="media/PockeClock.png" alt="">
+            <p id="pokeClock-Timer">00:00</p>
+        </div>
+    </div>
+    
     <!-- biomas -->
     <div id="game">
         <div id="bioma">
@@ -27,13 +39,13 @@
         <!-- pokemons -->
         <div id="pokemon">
             <div id="div1" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <img src="" draggable="true" id="drag1" class="droptarget">
+                <img class="pokemon" src="" draggable="true" id="drag1" class="droptarget">
             </div>
             <div id="div2" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <img src="" draggable="true" id="drag2" class="droptarget">
+                <img class="pokemon" src="" draggable="true" id="drag2" class="droptarget">
             </div>
             <div id="div3" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <img src="" draggable="true" id="drag3" class="droptarget">
+                <img class="pokemon" src="" draggable="true" id="drag3" class="droptarget">
             </div>
         </div>
     </div>

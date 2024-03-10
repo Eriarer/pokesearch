@@ -1,30 +1,28 @@
+let muted = sessionStorage.getItem('muted') ? JSON.parse(sessionStorage.getItem('muted')) : false;
+let musicCurrentTime = sessionStorage.getItem('time') ? parseFloat(sessionStorage.getItem('time')) : 0;
+
 let startAudio = () => {
     audio = new Audio('../sounds/audioFondo.wav');
     audio.volume = 0.25;
     audio.loop = true;
-
     musicIcon = $('#music');
     musicIcon.click(toggleMusic);
-    // lanzar un sweet alert para confirmar si quiere reproducir el audio
-    Swal.fire({
-        title: '¿Quieres reproducir el audio?',
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: 'Sí',
-        cancelButtonText: 'No',
-        // Establece estilos personalizados para los botones
-        customClass: {
-            confirmButton: 'pokeButton',
-            cancelButton: 'pokeButton-cancel'
+    // promesa de carga de audio
+    if (!muted) {
+        let promise = audio.play();
+        audio.currentTime = musicCurrentTime;
+        if (promise !== undefined) {
+            promise.then(_ => { // Playback started
+                musicIcon.attr('src', '../img/music.png');
+                muted = false;
+            }).catch(error => { //No se pudo reproducir el audio
+                musicIcon.attr('src', '../img/musicDeaf.png');
+                muted = true;
+            });
         }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            audio.play();
-        } else {
-            musicIcon.attr('src', '../img/musicDeaf.png');
-        }
-    });
-
+    } else {
+        musicIcon.attr('src', '../img/musicDeaf.png');
+    }
 }
 
 let toggleMusic = () => {
@@ -32,10 +30,23 @@ let toggleMusic = () => {
     if (audio.paused) {
         audio.play();
         musicIcon.attr('src', '../img/music.png');
+        muted = false;
     } else { // Si esta reproduciendo, lo pausa y cambia el icono
         audio.pause();
         musicIcon.attr('src', '../img/musicDeaf.png');
+        muted = true;
     }
 }
 
+let changePage = (path) => {
+    sessionStorage.setItem('time', audio.currentTime + 0.3);
+    sessionStorage.setItem('muted', JSON.stringify(muted));
+    window.location.href = path;
+}
+
 $(document).ready(startAudio);
+// cuando se refresque la pagina
+$(document).on('beforeunload', () => {
+    sessionStorage.setItem('time', audio.currentTime + 0.3);
+    sessionStorage.setItem('muted', JSON.stringify(muted));
+});

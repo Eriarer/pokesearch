@@ -170,8 +170,9 @@ function drop(ev) {
                 nombre.innerHTML = imagenesUsadas[i].name;
             });
         });
-
-        // Muestra el nombre del Pokémon
+    }else{
+        var audio = new Audio('media/effects/error.wav');
+        audio.play();
         
     }
 }

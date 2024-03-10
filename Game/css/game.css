@@ -24,12 +24,14 @@ body {
 
 .Pokearea {
     border: 3px double gray;
+    border-radius: 5px;
     width: 10rem;
     height: 10rem;
 }
 
 .drop-area {
     border: 2px solid white;
+    border-radius: 5px;
     text-align: center;
     /* alinear al centro en vertical y horizontal */
     display: flex;
@@ -45,4 +47,15 @@ body {
 img {
     width: 10rem;
     height: 10rem;
+}
+
+.drop-area p {
+    margin-top: 10rem;
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
 }

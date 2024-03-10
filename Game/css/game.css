@@ -7,10 +7,10 @@ body {
 }
 
 #game {
-    height: 97vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #bioma,
@@ -44,7 +44,7 @@ body {
     cursor: move;
 }
 
-img {
+.pokemon {
     width: 10rem;
     height: 10rem;
 }

@@ -18,10 +18,6 @@ window.onload = function () {
 
 //////////////////////// Fin de Canvas ////////////////////////
 //Si el buton de "JUGAR" esta desabilitado se ponen los siguientes estilos:
-if (document.getElementById("startButton").disabled) {
-    document.getElementById("startButton").style.backgroundColor = "gray";
-}
-
 const usernameInput = document.getElementById('usernameInput');
 const startButton = document.getElementById('startButton');
 const welcomeMessage = document.getElementById('welcomeMessage');
@@ -42,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // Función para verificar si el usuario existe en localStorage
 function checkUserExists(username) {
     const usersData = JSON.parse(localStorage.getItem('usersData')) || [];
-    return usersData.find(user => user.username === username);
+    // hacerlo no case sensitive
+    return usersData.find(user => user.username.toLowerCase() === username.toLowerCase());
 }
 
 // Función para mostrar los datos del usuario
@@ -64,25 +61,27 @@ function handleUsernameChange() {
     const userExists = checkUserExists(username);
 
     if (username === '') {
+        // ponerle la clase pokeButton-disabled al botón de inicio
+        startButton.classList.remove('pokeButton');
+        startButton.classList.add('pokeButton-disabled');
         startButton.disabled = true;
-        hideUserData();
-        document.getElementById("startButton").style.backgroundColor = "gray";
-    } else if (userExists) {
-        startButton.disabled = false;
-        showUserData(userExists);
-        document.getElementById("startButton").style.backgroundColor = "#d65353";
-
     } else {
+        // quitarle la clase pokeButton-disabled al botón de inicio
+        startButton.classList.remove('pokeButton-disabled');
+        startButton.classList.add('pokeButton');
         startButton.disabled = false;
+    }
+
+    if (userExists) {
+        showUserData(userExists);
+    } else {
         hideUserData();
-        welcomeMessage.innerText = '¡Bienvenido nuevo jugador!';
-        document.getElementById("startButton").style.backgroundColor = "#d65353";
     }
 }
 
 // Función para manejar el inicio del juego
 function startGame() {
-    var username = usernameInput.value.trim(); // Obtener el nombre de usuario
+    var username = usernameInput.value.trim().toLowerCase(); // Obtener el nombre de usuario
     if (username === '') return; // Si el nombre de usuario está vacío, no hacer nada
     if (!checkUserExists(username)) { // Si el usuario no existe, crearlo
         const newUser = {
@@ -91,7 +90,6 @@ function startGame() {
             time: '00:00',
             juagando: 1
         };
-
         const usersData = JSON.parse(localStorage.getItem('usersData')) || [];
         usersData.push(newUser);
         localStorage.setItem('usersData', JSON.stringify(usersData));

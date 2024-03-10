@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeLearn | inicio</title>
     <!-- favIcon -->
-    <link rel="icon" type="image/x-icon" href="../media/PL.png" />
+    <link rel="icon" type="image/x-icon" href="../media/buttons/PL.png" />
 
     <!-- Boostrap v4.6.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -44,6 +44,7 @@
         <img src="../media/inicio/casa.png" alt="">
         <img src="../media/inicio/tienda.png" alt="">
       </div>
+      <img src="../media/inicio/pikachu-running.gif" alt="" class="back" id="pikaRun">
       <div class="card" id="menuButtons">
         <img id="pokelearn" src="../media/inicio/pokelearn.png" alt="">
         <button onclick="changePage('login.html')" class="pokeButton">Jugar</button>
@@ -51,24 +52,6 @@
         <button onclick="changePage('tablero.html')" class="pokeButton">Puntuaciones</button>
       </div>
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exitModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <h1>¿Deseas salir?</h1>
-            <img src="../media/pikaSad.png" alt="">
-            <div id="exitModButtons">
-              <button class="pokeButton" data-dismiss="modal">Cancelar</button>
-              <button class="pokeButton-cancel" onclick="changePage('inicio.html')">Menú</button>
-              <button class="pokeButton-cancel" onclick="window.opener.close()">Salir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <script src="../js/music.js"></script>
   </body>

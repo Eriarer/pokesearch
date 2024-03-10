@@ -77,13 +77,13 @@
     <script src="../JS/music.js"></script>
     <script type="module">
       import { usersDataOrder } from '../JS/LocalStorage.js';
-
       window.onload = function () {
         const tablaBody = document.getElementById('tablaBody');
 
         // Obtener los usuarios ordenados por tiempo
         const usuariosOrdenados = usersDataOrder();
-
+        // Solo obtener los primeros 5
+        usuariosOrdenados.splice(5);
         // Iterar sobre los usuarios ordenados y agregar filas a la tabla
         usuariosOrdenados.forEach(user => {
           const fila = document.createElement('tr');

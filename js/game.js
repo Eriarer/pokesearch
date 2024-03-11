@@ -248,7 +248,7 @@ function nextLevel() {
         for (let user of usersData) {
             if (user.jugando == 1) {
                 //reescribir el vector de local storage
-                if (user.score < puntos || user.time < tiempo) {
+                if (user.score < puntos || user.time > tiempo) {
                     user.score = puntos;
                     user.time = seconds;
                 }

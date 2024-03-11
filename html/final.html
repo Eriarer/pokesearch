@@ -42,6 +42,18 @@
         width: 100%;
         height: 100%;
       }
+
+      #playAgain {
+        position: absolute;
+        z-index: 10;
+        margin: 8px;
+        right: 0;
+        height: 10%;
+        width: 10%;
+        border: none;
+        font-family: 'Silkscreen', sans-serif;
+        cursor: pointer;
+      }
     </style>
   </head>
 
@@ -57,6 +69,7 @@
         <img id="exit" src="../media/buttons/salir.png" alt="">
       </button>
     </div>
+    <button class="pokeButton" id="playAgain" onclick="changePage('../game.html')">Volver a jugar</button>
     <div class="content">
       <canvas id="diploma" style="border:1px solid #d3d3d3;"></canvas>
     </div>
@@ -71,7 +84,7 @@
             <div id="exitModButtons">
               <button class="pokeButton" data-dismiss="modal">Cancelar</button>
               <button class="pokeButton-cancel" onclick="changePage('../index.html')">Menú</button>
-              <button class="pokeButton-cancel" onclick="window.opener.close()">Salir</button>
+
             </div>
           </div>
         </div>
@@ -79,7 +92,7 @@
     </div>
 
     <script type="module" src="../js/LocalStorage.js"></script>
-    <script type="module" src="../js/final.js"></script>
+    <script type="module" src="../js/final.js" defer></script>
     <script src="../js/music.js"></script>
 
   </body>

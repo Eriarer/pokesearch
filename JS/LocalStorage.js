@@ -16,7 +16,7 @@ export function usersDataOrder() {
 export function userName() {
     let usersData = JSON.parse(localStorage.getItem('usersData')) || [];
     for (let user of usersData) {
-        if (user.jugando === 1) {
+        if (user.jugando == 1) {
             return user.username;
         }
     }
@@ -24,8 +24,8 @@ export function userName() {
 
 export function setJugador(jugador) {
     let usersData = JSON.parse(localStorage.getItem('usersData')) || [];
-    for(let user of usersData){
-        if(user.jugando === 1){
+    for (let user of usersData) {
+        if (user.jugando == 1) {
             user.jugando = 0;
         }
     }

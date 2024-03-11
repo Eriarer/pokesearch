@@ -39,11 +39,7 @@
       <video autoplay muted loop id="backgroudPoke" class="back">
         <source src="media/video/BackgrounCloudy.mp4" type="video/mp4" style="width: 100svw; height: 100svh;">
       </video>
-      <div class="back" id="structuresPoke">
-        <img src="media/inicio/centroPokemon.png" alt="">
-        <img src="media/inicio/casa.png" alt="">
-        <img src="media/inicio/tienda.png" alt="">
-      </div>
+
       <img src="media/inicio/pikachu-running.gif" alt="" class="back" id="pikaRun">
       <div class="card" id="menuButtons">
         <img id="pokelearn" src="media/inicio/pokelearn.png" alt="">
@@ -54,6 +50,18 @@
     </div>
 
     <script src="js/music.js"></script>
+    <script>
+      //ver si ya hay usarios en el localStorage
+      if (localStorage.getItem('usersData') != null) {
+        let usersData = JSON.parse(localStorage.getItem('usersData')) || [];
+        for (let user of usersData) {
+          if (user.jugando == 1) {
+            user.jugando = 0;
+          }
+        }
+        localStorage.setItem('usersData', JSON.stringify(usersData));
+      }
+    </script>
   </body>
 
 </html>

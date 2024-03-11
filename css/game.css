@@ -1,16 +1,60 @@
+/* incluir la fuente  */
+@font-face {
+    font-family: 'Aquarius';
+    src: url('../fonts/Aquarius-RegularMono.ttf') format('truetype');
+}
+
 body {
-    background-image: url('../media/Pokemon_Juego_Fondo.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: right;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Aquarius';
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#gameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    width: 100svw;
+
+    &>#wrapper {
+        width: 95svw;
+        height: 95svh;
+        max-width: 1000px;
+        max-height: 550px;
+        background-image: url('../media/Pokemon_Juego_Fondo.jpg');
+        background-size: fill;
+        background-repeat: no-repeat;
+        background-position: right;
+        margin: 0;
+        padding: 0;
+        border-radius: 50px;
+        border: 3px solid #000000;
+    }
+}
+
+
+#backgroudPoke {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    object-position: bottom;
 }
 
 #game {
-    height: 77vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    height: 90%;
+    padding: 2em;
+    padding-top: 0;
 }
 
 #bioma,
@@ -19,14 +63,27 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 }
 
+#pokeClock {
+    display: flex;
+    justify-content: flex-end;
+}
 
-.Pokearea {
-    border: 3px double gray;
-    border-radius: 5px;
-    width: 10rem;
-    height: 10rem;
+#pokeClock-Timer {
+    font-family: 'Aquarius';
+    color: #508050;
+    position: relative;
+    top: 12px;
+    left: -120px;
+    font-size: 20px;
+    width: 0px;
+}
+
+#btnSig {
+    visibility: visible;
+    position: relative;
 }
 
 .drop-area {
@@ -35,27 +92,83 @@ body {
     text-align: center;
     /* alinear al centro en vertical y horizontal */
     display: flex;
-    justify-content: center;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
     align-items: center;
-    
+    height: 100%;
+    padding-bottom: 0;
+    margin: 0;
+
+    &>img {
+        width: 45%;
+        height: auto;
+    }
+
+    &>p {
+        color: black;
+        font-weight: bold;
+        background-color: white;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 5px;
+        height: 30px;
+    }
 }
 
 .droptarget {
     cursor: move;
 }
 
+.Pokearea {
+    width: 10rem;
+    height: 10rem;
+    background-image: url('../media/PokeLost.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: inset 0 0 30px 10px #000000;
+}
+
 .pokemon {
     width: 10rem;
     height: 10rem;
+    border-radius: 15px;
+    filter: drop-shadow(0px 10px 7px #091c3b);
 }
 
-.drop-area p {
-    margin-top: 10rem;
-    position: absolute;
-    color: black;
-    font-weight: bold;
-    font-size: 1.5rem;
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px;
+#playerData {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* padding entre elementos dell felx */
+    gap: 30px;
+
+    /* acomodar l */
+    &>p {
+        color: #000;
+        width: 30%;
+        height: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #ffffff;
+        padding: 5px;
+        border-radius: 0 0 10px 10px;
+        /* ponerle sombra a todo menos el borde superior */
+        border: 2px solid #000000;
+        border-top: none;
+        text-align: center;
+    }
+
+}
+
+
+
+
+/*  ancho sea bastante y el alto poco */
+@media screen and (max-height: 600px) {
+    #icons {
+        flex-direction: column;
+        width: 80px;
+    }
 }

@@ -1,54 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Juego</title>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
-        <script src="js/game.js"></script>
-        <script src="js/pokeClock.js"></script>
-        <link rel="stylesheet" href="css/game.css">
-        <link rel="stylesheet" href="css/pokeclock.css">
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeLearn | Juguemos juntos</title>
+    <!-- favIcon -->
+    <link rel="icon" type="image/x-icon" href="media/buttons/PL.png" />
+    <!-- Boostrap v4.6.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+            crossorigin="anonymous"></script>
 
-    <body>
-        <div id="header">
-            <div id="pokeClock">
-                <img src="media/PockeClock.png" alt="">
-                <p id="pokeClock-Timer">00:00</p>
-            </div>
+    <script src="js/game.js"></script>
+    <script src="js/pokeClock.js"></script>
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/pokeclock.css">
+  </head>
+
+  <body>
+    <div id="icons">
+      <button class="pokeButton" onclick="changePage('../index.html')">
+        <img id="PL" src="media/buttons/PL.png" alt="">
+      </button>
+      <button class="pokeButton" id="btnMusic">
+        <img id="music" src="media/buttons/music.png" alt="">
+      </button>
+      <button class="pokeButton" data-toggle="modal" data-target="#exitModal">
+        <img id="exit" src="../media/buttons/salir.png" alt="">
+      </button>
+    </div>
+
+    <!-- bacground -->
+    <div id="contentMenu">
+      <video autoplay muted loop id="backgroudPoke" class="back">
+        <source src="media/video/BackgrounCloudy.mp4" type="video/mp4" style="width: 100svw; height: 100svh;">
+      </video>
+    </div>
+
+    <div id="gameContainer">
+      <div id="wrapper">
+        <div id="playerData">
+          <p id="playerName"></p>
+          <p id="points"></p>
+          <div id="pokeClock">
+            <img src="media/PockeClock.png" alt="">
+            <p id="pokeClock-Timer">00:00</p>
+          </div>
         </div>
 
-        <!-- biomas -->
         <div id="game">
-            <div id="bioma">
-                <div id="bioma1" use="False" draggable="false" class="drop-area">
-                    <p id="pbiom1"></p>
-                </div>
-                <div id="bioma2" use="False" draggable="false" class="drop-area">
-                    <p id="pbiom2"></p>
-                </div>
-                <div id="bioma3" use="False" draggable="false" class="drop-area">
-                    <p id="pbiom3"></p>
-                </div>
+          <!-- biomas -->
+          <div id="bioma">
+            <div id="bioma1" use="False" draggable="false" class="drop-area">
+              <p id="pbiom1"></p>
             </div>
+            <div id="bioma2" use="False" draggable="false" class="drop-area">
+              <p id="pbiom2"></p>
+            </div>
+            <div id="bioma3" use="False" draggable="false" class="drop-area">
+              <p id="pbiom3"></p>
+            </div>
+          </div>
 
-            <!-- pokemons -->
-            <div id="pokemon">
-                <div id="div1" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <img class="pokemon" src="" draggable="true" id="drag1" class="droptarget">
-                </div>
-                <div id="div2" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <img class="pokemon" src="" draggable="true" id="drag2" class="droptarget">
-                </div>
-                <div id="div3" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <img class="pokemon" src="" draggable="true" id="drag3" class="droptarget">
-                </div>
+          <!-- pokemons -->
+          <div id="pokemon">
+            <div id="div1" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <img class="pokemon" src="" draggable="true" id="drag1" class="droptarget">
             </div>
+            <div id="div2" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <img class="pokemon" src="" draggable="true" id="drag2" class="droptarget">
+            </div>
+            <div id="div3" class="Pokearea" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <img class="pokemon" src="" draggable="true" id="drag3" class="droptarget">
+            </div>
+          </div>
         </div>
-    </body>
+
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exitModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h1>¿Deseas salir?</h1>
+            <img src="../media/modal/pikaSad.png" alt="">
+            <div id="exitModButtons">
+              <button class="pokeButton" data-dismiss="modal">Cancelar</button>
+              <button class="pokeButton-cancel" onclick="changePage('../index.html')">Menú</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      sessionStorage.setItem('muted', false);
+    </script>
+    <script src="js/music.js"></script>
+  </body>
 
 </html>

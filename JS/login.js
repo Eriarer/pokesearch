@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function checkUserExists(username) {
     const usersData = JSON.parse(localStorage.getItem('usersData')) || [];
     // hacerlo no case sensitive
-    return usersData.find(user => user.username.toLowerCase() === username.toLowerCase());
+    return usersData.find(user => user.username.toUpperCase() === username.toUpperCase());
 }
 
 // Función para mostrar los datos del usuario
@@ -81,14 +81,15 @@ function handleUsernameChange() {
 
 // Función para manejar el inicio del juego
 function startGame() {
-    var username = usernameInput.value.trim().toLowerCase(); // Obtener el nombre de usuario
+    //poner el nombre en mayusculas
+    var username = usernameInput.value.trim().toUpperCase();
     if (username === '') return; // Si el nombre de usuario está vacío, no hacer nada
     if (!checkUserExists(username)) { // Si el usuario no existe, crearlo
         const newUser = {
             username: username,
             score: 0,
-            time: '00:00',
-            juagando: 1
+            time: '0',
+            jugando: 1
         };
         const usersData = JSON.parse(localStorage.getItem('usersData')) || [];
         usersData.push(newUser);
